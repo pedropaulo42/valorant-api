@@ -3,25 +3,22 @@ package com.vaval.valorantapi.domain;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Agent implements Serializable  {
-
+public class Role implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
-
+	
 	private UUID id;
 	private String name;
-	private Role role;
 	private String description;
-	//private Abilities abilities;
 	
-	public Agent() {
+	public Role() {
 	}
-	
-	public Agent(UUID id, String name, Role role, String description) {
+
+	public Role(UUID id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.role = role;
 	}
 
 	public UUID getId() {
@@ -38,14 +35,6 @@ public class Agent implements Serializable  {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
 	}
 
 	public String getDescription() {
@@ -72,7 +61,7 @@ public class Agent implements Serializable  {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Agent other = (Agent) obj;
+		Role other = (Role) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
