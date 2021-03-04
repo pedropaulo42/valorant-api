@@ -1,24 +1,27 @@
-package com.vaval.valorantapi.domain;
+package com.vaval.valorantapi.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-public class Role implements Serializable {
-	
+public class Agent implements Serializable  {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private UUID id;
 	private String name;
 	private String description;
 	
-	public Role() {
-	}
-
-	public Role(UUID id, String name, String description) {
+	private Role role;
+	private List<Abilities> abilities = new ArrayList<>();
+	
+	public Agent(UUID id, String name, String description, Role role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.role = role;
 	}
 
 	public UUID getId() {
@@ -37,12 +40,24 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public List<Abilities> getOrders() {
+		return abilities;
 	}
 
 	@Override
@@ -61,7 +76,7 @@ public class Role implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Role other = (Role) obj;
+		Agent other = (Agent) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

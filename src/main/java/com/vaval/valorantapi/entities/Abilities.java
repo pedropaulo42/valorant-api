@@ -1,27 +1,23 @@
-package com.vaval.valorantapi.domain;
+package com.vaval.valorantapi.entities;
 
-import java.io.Serializable;
 import java.util.UUID;
 
-public class Agent implements Serializable  {
+import com.vaval.valorantapi.entities.enums.Slot;
 
-	private static final long serialVersionUID = 1L;
+public class Abilities {
 
 	private UUID id;
 	private String name;
-	private Role role;
 	private String description;
-	//private Abilities abilities;
-	
-	public Agent() {
-	}
-	
-	public Agent(UUID id, String name, Role role, String description) {
+
+	private Slot slot;
+
+	public Abilities(UUID id, String name, String description, Slot slot) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.role = role;
+		this.slot = slot;
 	}
 
 	public UUID getId() {
@@ -40,20 +36,20 @@ public class Agent implements Serializable  {
 		this.name = name;
 	}
 
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Slot getSlot() {
+		return slot;
+	}
+
+	public void setSlot(Slot slot) {
+		this.slot = slot;
 	}
 
 	@Override
@@ -72,7 +68,7 @@ public class Agent implements Serializable  {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Agent other = (Agent) obj;
+		Abilities other = (Abilities) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
