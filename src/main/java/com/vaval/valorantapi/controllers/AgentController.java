@@ -1,4 +1,4 @@
-package com.vaval.valorantapi.resources;
+package com.vaval.valorantapi.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import com.vaval.valorantapi.entities.Role;
 
 @RestController
 @RequestMapping(value = "/agents")
-public class AgentResource {
+public class AgentController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Agent>> findAll() {
