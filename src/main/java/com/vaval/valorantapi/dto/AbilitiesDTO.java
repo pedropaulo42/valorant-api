@@ -1,30 +1,24 @@
-package com.vaval.valorantapi.entities;
+package com.vaval.valorantapi.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import com.vaval.valorantapi.entities.Abilities;
 import com.vaval.valorantapi.entities.enums.Slot;
 
-@Entity
-public class Abilities {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class AbilitiesDTO {
 	
+	private Long id;
 	private String name;
 	private String description;
-
 	private Slot slot;
+	
+	public AbilitiesDTO() {
+	}
 
-	public Abilities(Long id, String name, String description, Slot slot) {
+	public AbilitiesDTO(Abilities abilities) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.slot = slot;
+		this.id = abilities.getId();
+		this.name = abilities.getName();
+		this.description = abilities.getDescription();
+		this.slot = abilities.getSlot();
 	}
 
 	public Long getId() {
