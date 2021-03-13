@@ -11,7 +11,7 @@ import com.vaval.valorantapi.entities.Abilities;
 import com.vaval.valorantapi.repositories.AbilitiesRepository;
 
 @Service
-public class AbilitiesSerice {
+public class AbilitiesService {
 	
 	@Autowired
 	private AbilitiesRepository repository;
